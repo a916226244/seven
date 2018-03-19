@@ -1,0 +1,8 @@
+server:
+  port: 8080
+  displayName: oceanus-httpadapter
+jetty:
+  threadPool:
+      maxThreads: 200
+      minThreads: 10
+      idleTimeout: 30000

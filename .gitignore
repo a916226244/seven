@@ -1,0 +1,27 @@
+<<<<<<< HEAD
+logs/
+.DS_Store
+target/
+dependency-reduced-pom.xml
+=======
+# Created by .ignore support plugin (hsz.mobi)
+logs/
+target/
+>>>>>>> 57876dea683e22605943796da7e364cd5aaa3137
+.classpath
+.project
+.settings/
+.springBeans
+.metadata/
+*.ipr
+*.iws
+*.iml
+.idea/
+*.swp
+*.swo
+*.swn
+<<<<<<< HEAD
+logs/*
+=======
+*.DS_Store
+>>>>>>> 57876dea683e22605943796da7e364cd5aaa3137

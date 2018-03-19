@@ -1,0 +1,26 @@
+server:
+  port: 8087
+  displayName: oceanus-httpadapter
+https:
+  port: 8843
+  keystore-password: 871118
+  keystore-file: /Users/xiaozhiping/Downloads/xiaozhiping.com/Tomcat/xiaozhiping.com.jks
+h2:
+    console:
+        enabled: true
+spring:
+    datasource:
+        driver-class-name: org.h2.Driver
+        name: test
+        url:  jdbc:h2:~/seven;mode=MySQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+#        url: jdbc:h2:mem:db_users;mode=MySQL;
+        username: seven
+        password: seven
+#        schema: classpath:h2/schema.sql
+        initialSize: 5
+        minIdle: 5
+        maxActive: 20
+        maxWait: 60000
+        sql-script-encoding: UTF-8
+mybatis:
+    configLocation: classpath:/mybatis-config.xml
