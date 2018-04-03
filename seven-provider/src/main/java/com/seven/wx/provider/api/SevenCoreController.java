@@ -48,7 +48,10 @@ public class SevenCoreController {
                     SevenVo sevenVo = new SevenVo();
                     sevenVo.setDesc(seven.getSay());
                     sevenVo.setId(seven.getId());
-                    sevenVo.setSrc("https://77-1256128949.cos.ap-beijing.myqcloud.com/" + seven.getName());
+                    sevenVo.setDates(seven.getSay());
+                    sevenVo.setHeight(seven.getHeight());
+                    sevenVo.setWidth(seven.getWidth());
+                    sevenVo.setSrc("https://77-1256128949.file.myqcloud.com/" + seven.getName());
                     list.add(sevenVo);
                 }
             }
@@ -74,7 +77,11 @@ public class SevenCoreController {
     }
 
     @RequestMapping("/upload")
-    public UploadVo uploadPhoto(@RequestParam("file") MultipartFile file,@RequestParam("desc") String desc, @RequestParam("token") String token) throws IOException {
+    public UploadVo uploadPhoto(@RequestParam("file") MultipartFile file,
+                                @RequestParam("desc") String desc,
+                                @RequestParam("token") String token,
+                                @RequestParam("width") int width,
+                                @RequestParam("height") int height) throws IOException {
             UploadVo uploadVo = new UploadVo();
         try {
             if (StringUtils.isEmpty(token) || !token.equals("20170313.77")) {
@@ -85,7 +92,7 @@ public class SevenCoreController {
             }
             logger.info("fileName：" + file.getOriginalFilename() + "." + desc);
             ByteArrayInputStream fin = (ByteArrayInputStream) file.getInputStream();
-            txCloudService.upload(fin, file.getOriginalFilename(), desc, file.getSize());
+            txCloudService.upload(fin, file.getOriginalFilename(), desc, file.getSize(),width,height);
         }catch (Exception e){
             logger.error("上传错误:" + desc,e);
             uploadVo.setCode(UploadVo.OTHER_ERROR);

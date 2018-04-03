@@ -19,6 +19,12 @@ public class Seven {
 
     private Date createTime;
 
+    private Integer count;
+
+    private Integer width;
+
+    private Integer height;
+
     public int getId() {
         return id;
     }
@@ -45,6 +51,30 @@ public class Seven {
 
     public String getSay() {
         return say;
+    }
+
+    public Integer getCount() {
+        return count;
+    }
+
+    public void setCount(Integer count) {
+        this.count = count;
+    }
+
+    public Integer getWidth() {
+        return width;
+    }
+
+    public void setWidth(Integer width) {
+        this.width = width;
+    }
+
+    public Integer getHeight() {
+        return height;
+    }
+
+    public void setHeight(Integer height) {
+        this.height = height;
     }
 
     public void setSay(String say) {

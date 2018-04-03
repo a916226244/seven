@@ -10,6 +10,9 @@ import com.qcloud.cos.model.PutObjectResult;
 import com.qcloud.cos.region.Region;
 import com.seven.wx.dao.SevenDao;
 import com.seven.wx.dao.domain.Seven;
+
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -17,6 +20,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.imageio.ImageIO;
 import java.io.ByteArrayInputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -53,7 +57,7 @@ public class TxCloudService {
      * @param byteArrayInputStream
      * @param size
      */
-    public void  upload(ByteArrayInputStream byteArrayInputStream,String name,String desc,long size){
+    public void  upload(ByteArrayInputStream byteArrayInputStream,String name,String desc,long size,int width,int height){
         COSCredentials cred = new BasicCOSCredentials("AKIDfSJ0azFMG7sSr5kyJdlhR4joqhNtNMKA", "sa6TfjbLwT7av54zlMB5c2H6oLhHQTPA");
         ClientConfig clientConfig = new ClientConfig(new Region("ap-beijing"));
         COSClient cosclient = new COSClient(cred, clientConfig);
@@ -72,6 +76,8 @@ public class TxCloudService {
         seven.setCreateTime(new Date());
         seven.setSay(desc);
         seven.setName(key);
+        seven.setWidth(width);
+        seven.setHeight(height);
         sevenDao.insert(seven);
     }
 

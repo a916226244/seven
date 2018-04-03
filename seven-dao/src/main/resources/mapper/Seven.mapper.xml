@@ -8,6 +8,9 @@
         <result property="path" column="path" jdbcType="VARCHAR"/>
         <result property="say" column="say" jdbcType="VARCHAR"/>
         <result property="createTime" column="createTime" jdbcType="TIMESTAMP"/>
+        <result property="count" column="count" jdbcType="INTEGER"/>
+        <result property="width" column="width" jdbcType="INTEGER"/>
+        <result property="height" column="height" jdbcType="INTEGER"/>
     </resultMap>
 
     <sql id="selectSql">
@@ -18,7 +21,10 @@
             bucketName AS bucketName,
             path AS path,
             say AS say,
-            createTime AS createTime
+            createTime AS createTime,
+            count AS count,
+            width AS width,
+            height AS height
         </trim>
         FROM seven
     </sql>
@@ -41,6 +47,15 @@
             <if test="model.createTime != null">
                 createTime,
             </if>
+            <if test="model.count != null">
+                count,
+            </if>
+            <if test="model.width != null">
+                width,
+            </if>
+            <if test="model.height != null">
+                height,
+            </if>
         </trim>
     </sql>
 
@@ -60,6 +75,15 @@
             </if>
             <if test="model.createTime != null">
                 #{model.createTime},
+            </if>
+            <if test="model.count != null">
+                #{model.count},
+            </if>
+            <if test="model.width != null">
+                #{model.width},
+            </if>
+            <if test="model.height != null">
+                #{model.height},
             </if>
         </trim>
     </sql>
